@@ -53,16 +53,18 @@ class backtrack{
             }
         }
         // diagonal left up
-for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
-    if (board[i][j] == 'Q') {
-        return false;
-}}
+         for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+             if (board[i][j] == 'Q') {
+                    return false;
+                }
+          }
 
-// diagonal right up
-for (int i = row - 1, j = col + 1; i >= 0 && j < board.length; i--, j++) {
-    if (board[i][j] == 'Q') {
-        return false;
-}}    
+        // diagonal right up
+          for (int i = row - 1, j = col + 1; i >= 0 && j < board.length; i--, j++) {
+              if (board[i][j] == 'Q') {
+                  return false;
+                }
+            }    
         
         return true;
     }
@@ -107,7 +109,7 @@ for (int i = row - 1, j = col + 1; i >= 0 && j < board.length; i--, j++) {
          permu(str, "");
 
          //nqueens
-         int n=4;
+         int n=5;
          char board[][]=new char[n][n];
          //intitialize
          for(int i=0;i<n;i++){
