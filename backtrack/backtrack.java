@@ -74,7 +74,10 @@ class backtrack{
     public static void nqueens(char board[][],int row){
         //base
         if(row==board.length){
-            printboard(board);
+            ////to count all possible ways
+           count++;
+           //to print all possible ways
+             ///////////////////////// printboard(board);
             return;
         }
         //column loop
@@ -97,6 +100,7 @@ class backtrack{
             System.out.println();
         }
     }
+     static int count =  0; 
     public static void main(String args[]){
         int arr[]=new int[5];
          arrba(arr, 0, 1);
@@ -118,6 +122,7 @@ class backtrack{
              }
          }
          nqueens(board, 0);
+         System.out.println("no of ways="+count);
 
     }
 }
