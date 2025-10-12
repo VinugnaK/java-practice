@@ -15,6 +15,9 @@ public class containerwater {
         }return maxwat;
 
     }
+    
+    //2 pointers
+    
     public static void main(String[] args) {
         ArrayList<Integer> list=new ArrayList<>();
         list.add(1);
