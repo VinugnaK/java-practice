@@ -17,7 +17,27 @@ public class containerwater {
     }
     
     //2 pointers
-    
+    public static int containwat(ArrayList<Integer> List){
+        int maxwat=0;
+        int lp=0;
+        int rp=List.size()-1;
+
+        while(lp<rp){
+            int ht=Math.min(List.get(lp),List.get(rp));
+            int width=rp-lp;
+            int currrwat=ht*width;
+            maxwat=Math.max(maxwat,currrwat);
+
+            if(List.get(lp)<List.get(rp)){
+                lp++;
+            }
+            else{
+                rp--;
+            }
+
+        }
+        return maxwat;
+    }
     public static void main(String[] args) {
         ArrayList<Integer> list=new ArrayList<>();
         list.add(1);
@@ -30,6 +50,7 @@ public class containerwater {
         list.add(3);
         list.add(7);
         System.out.println(storewater(list));
+        System.out.println(containwat(list));
 
 
     }
