@@ -1,5 +1,5 @@
 package linkedlist;
-
+//basic .. like created a node which iwll have a data and next
 public class linked1 {
     public static class Node{
         int data;
