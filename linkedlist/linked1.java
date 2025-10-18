@@ -13,7 +13,6 @@ public class linked1 {
     public static Node head;
     public static Node tail;
 
-
     public static void main(String[] args) {
      linked1 lin=new linked1();
      lin.head=new Node(1);
