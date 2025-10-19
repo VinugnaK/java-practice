@@ -11,10 +11,12 @@ public class addfirs {
     }}
     public static Node head;
     public static Node tail;
+    public static int size;  //for finding size...places at all insertions put size++...
 
     public void addfirst(int data){
         //step1:- create a new node
         Node newnode=new Node(data);
+        size++;
         //basecase: if there is no node and u try to add a new node
         if(head==null){
             head=tail=newnode;
@@ -26,12 +28,17 @@ public class addfirs {
     }
 
     public void addlast(int data){
+        //create  anew node
         Node newnode=new Node(data);
+         size++;
+         //base case
         if(head==null){
             head=tail=newnode;
             return;
         }
+        //assign the value of new node to tail's next 
         tail.next=newnode;
+        //resassign tail value
         tail=newnode;
     }
    
@@ -39,26 +46,42 @@ public class addfirs {
         if(head==null){System.out.println("Linked dlist is empty");}
         Node temp=head;
         while(temp!=null){
-            System.out.println(temp.data);
+            System.out.print(temp.data+"-->");
             temp=temp.next;
-        }System.out.println();
+        }System.out.println("null");
 
     }
 
     public void addmid(int idx,int data){
+        //base case
+        if(idx==0){
+            addfirst(data);
+            return;
+        }
+        //create a new node
         Node newnode=new Node(data);
-
+        size++;
+        //vars for reaching th point of insertion 
         Node temp=head;
         int i=0;
-
+    //after this loop u will reach the pint where u want to insert the new node
         while(i<idx-1){
             temp=temp.next;
             i++;
         }
-
+     //reassign the values of new node connection to next and that next to new node ...once see ur notes
         newnode.next=temp.next;
         temp.next=newnode;
     }
+
+    public int removefirst(){
+        if(size==0){System.out.println("Linked List is empty");}
+        int n=head.data;
+        head=head.next;
+        return n;
+    }
+
+    
 
 
 
@@ -71,6 +94,9 @@ public class addfirs {
         ll.addlast(4);
         ll.printll();
         ll.addmid(2, 234);
+        ll.printll();
+        System.out.println(ll.size);
+        ll.removefirst();
         ll.printll();
         
     }
