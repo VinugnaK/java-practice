@@ -84,13 +84,37 @@ public class addfirs {
             return n;
 
         }
+        //in general,removal of first element
         int n=head.data;
         head=head.next;
         size--;
         return n;
     }
 
-    
+public static int removelast(){
+if(size==0){
+    System.out.println("Linked list is empty");
+}
+//if linked list has only 1 element
+if(size==1){
+ int val=head.data;
+ head=tail=null;
+ size=0;
+ return val;
+}
+//in general
+Node prev=head;
+//to reach the last but one node
+for(int i=0;i<size-2;i++){
+    prev=prev.next;
+}
+//removing the last node and reassigning tail 
+int val=prev.next.data;
+prev.next=null;
+tail=prev;
+size--;
+return val;
+}
 
 
 
@@ -105,7 +129,11 @@ public class addfirs {
         ll.addmid(2, 234);
         ll.printll();
         System.out.println(ll.size);
-        ll.removefirst();
+        //to view the value i deleted
+        int val=ll.removefirst();
+        System.out.println(val);
+        ll.printll();
+        ll.removelast();
         ll.printll();
         
     }
