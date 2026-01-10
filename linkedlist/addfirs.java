@@ -28,7 +28,7 @@ public class addfirs {
     }
 
     public void addlast(int data){
-        //create  anew node
+        //create  a new node
         Node newnode=new Node(data);
          size++;
          //base case
@@ -76,8 +76,17 @@ public class addfirs {
 
     public int removefirst(){
         if(size==0){System.out.println("Linked List is empty");}
+        //if linked list has only 1 element
+        if(size==1){
+            int val=head.data;
+            head=tail=null;
+            size=0;
+            return val;
+
+        }
         int n=head.data;
         head=head.next;
+        size--;
         return n;
     }
 
