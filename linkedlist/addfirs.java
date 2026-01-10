@@ -78,10 +78,10 @@ public class addfirs {
         if(size==0){System.out.println("Linked List is empty");}
         //if linked list has only 1 element
         if(size==1){
-            int val=head.data;
+            int n=head.data;
             head=tail=null;
             size=0;
-            return val;
+            return n;
 
         }
         int n=head.data;
