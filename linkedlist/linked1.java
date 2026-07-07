@@ -241,6 +241,19 @@ public class linked1 {
 
     }
 
+    public boolean detectloop() {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         linked1 ll = new linked1();
         // ll.head = new Node(1);
@@ -265,6 +278,7 @@ public class linked1 {
         ll.removenthelefromlast(3);
         ll.print();
         System.out.println(ll.llpalin());
+        System.out.println(ll.detectloop());
 
     }
 }
