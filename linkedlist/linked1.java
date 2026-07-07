@@ -194,6 +194,53 @@ public class linked1 {
 
     }
 
+    // Slow - Fast Approach
+    public Node midele(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;// +1
+            fast = fast.next.next;// +2
+        }
+        return slow;
+
+    }
+
+    public boolean llpalin() {
+        // base case
+        if (head == null || head.next == null) {
+            return true; // ll has only 1 element
+
+        }
+        // step 1: To find the mid
+        Node mid = midele(head);
+        // step 2: Reverse the second half
+        Node prev = null;
+        Node curr = mid;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+        }
+
+        // step 3: Check left half and right half(if they are equal)
+        Node right = prev;// coz the curr is at last node becoz of us reversing the 2nd mid half
+        Node left = head;
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+
+    }
+
     public static void main(String[] args) {
         linked1 ll = new linked1();
         // ll.head = new Node(1);
@@ -217,6 +264,7 @@ public class linked1 {
         ll.print();
         ll.removenthelefromlast(3);
         ll.print();
+        System.out.println(ll.llpalin());
 
     }
 }
