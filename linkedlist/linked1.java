@@ -115,6 +115,44 @@ public class linked1 {
         return val;
     }
 
+    public int linearitrsearch(int key) {
+        Node temp = head;
+        int idx = 0;
+
+        while (temp != null) {
+            if (temp.data == key) {// key found
+                return idx;
+            } else {
+                temp = temp.next;
+                idx++;
+            }
+        }
+        return -1; // key not found
+
+    }
+
+    public int helper(Node head, int key) {
+        // base case
+        if (head == null) {
+            return -1;
+        }
+        if (head.data == key) {
+            return 0;
+        }
+
+        int idx = helper(head.next, key);
+
+        if (idx == -1) {
+            return -1;
+        }
+        return idx + 1;
+
+    }
+
+    public int recsearch(int key) {
+        return helper(head, key);
+    }
+
     public static void main(String[] args) {
         linked1 ll = new linked1();
         // ll.head = new Node(1);
@@ -129,6 +167,9 @@ public class linked1 {
         ll.print();
         ll.removeLast();
         ll.print();
+        int q = ll.linearitrsearch(3);
+        System.out.println(q);
+        System.out.println(ll.recsearch(0));
 
     }
 }
