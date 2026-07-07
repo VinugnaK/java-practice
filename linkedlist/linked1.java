@@ -153,6 +153,47 @@ public class linked1 {
         return helper(head, key);
     }
 
+    public void reverse() {
+        Node prev = null;
+        Node curr = tail = head;// in java it goes from right to left...first the value of head is stored in
+                                // tail and then it is stored in curr
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+        }
+        head = prev;
+
+    }
+
+    public void removenthelefromlast(int n) {
+        int size = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            size++;
+
+        }
+        if (n == size) {
+            head = head.next;
+            return;
+        }
+        int i = 1;
+        int itofind = size - n;
+        Node prev = head;
+        while (i < itofind) {
+            prev = prev.next;
+            i++;
+
+        }
+        prev.next = prev.next.next;
+        return;
+
+    }
+
     public static void main(String[] args) {
         linked1 ll = new linked1();
         // ll.head = new Node(1);
@@ -160,6 +201,8 @@ public class linked1 {
         ll.addFirst(1);
         ll.addFirst(2);
         ll.addLast(9);
+        ll.addFirst(4);
+        ll.addLast(5);
         ll.addidx(3, 6);
         ll.print();
         System.out.println(ll.size);
@@ -170,6 +213,10 @@ public class linked1 {
         int q = ll.linearitrsearch(3);
         System.out.println(q);
         System.out.println(ll.recsearch(0));
+        ll.reverse();
+        ll.print();
+        ll.removenthelefromlast(3);
+        ll.print();
 
     }
 }
