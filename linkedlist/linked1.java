@@ -254,6 +254,35 @@ public class linked1 {
         return false;
     }
 
+    public void removecycle() {
+        // detect cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                cycle = true;
+                break;
+            }
+        }
+        if (cycle == false) {
+            return;
+        }
+        // find meeting point
+        slow = head;
+        Node prev = null;
+        while (slow != fast) {
+            slow = slow.next;
+            prev = fast;
+            fast = fast.next;
+        }
+        // remove the cycle and make the fast's prev.next as null
+        prev.next = null;
+    }
+
     public static void main(String[] args) {
         linked1 ll = new linked1();
         // ll.head = new Node(1);
