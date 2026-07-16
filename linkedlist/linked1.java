@@ -295,7 +295,7 @@ public class linked1 {
                 temp = temp.next;
             } else {
                 temp.next = head2;
-                head2 = head.next;
+                head2 = head2.next;
                 temp = temp.next;
 
             }
@@ -314,7 +314,7 @@ public class linked1 {
 
     }
 
-    public Node mergeSort(Node head) {
+    public Node mergeSort(Node head) {// tc------> O(NLOGN)
         // base case
         if (head == null || head.next == null) {
             return head;
@@ -347,6 +347,8 @@ public class linked1 {
         ll.addFirst(4);
         ll.addFirst(7);
         ll.addLast(5);
+        ll.addLast(3);
+        ll.addFirst(11);
         ll.addidx(3, 6);
         ll.print();
         System.out.println(ll.size);
