@@ -283,6 +283,60 @@ public class linked1 {
         prev.next = null;
     }
 
+    public Node merge(Node head1, Node head2) {
+        // initialize a dummy node -1
+        Node mergedll = new Node(-1);
+        Node temp = mergedll;
+        // loop it until either if the linked list gets empty
+        while (head1 != null && head2 != null) {
+            if (head1.data <= head2.data) {
+                temp.next = head1;
+                head1 = head1.next;
+                temp = temp.next;
+            } else {
+                temp.next = head2;
+                head2 = head.next;
+                temp = temp.next;
+
+            }
+        }
+        while (head1 != null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+        while (head2 != null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return mergedll.next;
+
+    }
+
+    public Node mergeSort(Node head) {
+        // base case
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // find mid
+        Node slow = head;
+        Node fast = head.next; // inorder to handle the even case
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node midnode = slow;
+        // find left and right half
+        Node righthead = midnode.next; // for braking the ll into 2 parts
+        midnode.next = null; // for braking the ll into 2 parts
+        Node newleft = mergeSort(head);
+        Node newright = mergeSort(righthead);
+        // merge
+        return merge(newleft, newright);
+
+    }
+
     public static void main(String[] args) {
         linked1 ll = new linked1();
         // ll.head = new Node(1);
@@ -291,6 +345,7 @@ public class linked1 {
         ll.addFirst(2);
         ll.addLast(9);
         ll.addFirst(4);
+        ll.addFirst(7);
         ll.addLast(5);
         ll.addidx(3, 6);
         ll.print();
@@ -308,6 +363,8 @@ public class linked1 {
         ll.print();
         System.out.println(ll.llpalin());
         System.out.println(ll.detectloop());
+        ll.head = ll.mergeSort(ll.head);
+        ll.print();
 
     }
 }
