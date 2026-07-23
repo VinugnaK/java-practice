@@ -78,6 +78,21 @@ public class DoubleLL {
 
     }
 
+    public void reversell() {
+        // 3 var 4 steps(singly)+1 for doubly
+        Node curr = head;
+        Node prev = null;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     public void print() {
         Node temp = head;
         while (temp != null) {
@@ -95,11 +110,13 @@ public class DoubleLL {
         dll.addFirst(1);
         dll.print();
         System.out.println(dll.size);
-        dll.removeFirst();
+        // dll.removeFirst();
         dll.print();
-        dll.removelast();
+        // dll.removelast();
         dll.print();
         dll.addLast(9);
+        dll.print();
+        dll.reversell();
         dll.print();
 
     }
