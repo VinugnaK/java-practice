@@ -15,12 +15,18 @@ public class StackUsingArrLink {
         }
 
         public static int pop() {
+            if (isempty()) {
+                return -1;
+            }
             int top = list.get(list.size() - 1);
             list.remove(list.size() - 1);
             return top;
         }
 
         public static int peek() {
+            if (isempty()) {
+                return -1;
+            }
             int top = list.get(list.size() - 1);
             return top;
         }
