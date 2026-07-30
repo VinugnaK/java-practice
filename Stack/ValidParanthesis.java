@@ -34,16 +34,15 @@ public class ValidParanthesis {
     static boolean dupparen(String str) {
         Stack<Character> s = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == '{' || str.charAt(i) == '[' || str.charAt(i) == '('
-                    || Character.isLetterOrDigit(str.charAt(i))) {
+            if (str.charAt(i) != ')') {
                 s.push(str.charAt(i));
             } else {
                 int count = 0;
-                while (str.charAt(i) == ')' && s.peek() == '(' || str.charAt(i) == '}' && s.peek() == '{'
-                        || str.charAt(i) == ']' && s.peek() == '[') {
+                while (s.peek() != '(') {
                     count++;
                     s.pop();
                 }
+                s.pop();
                 if (count < 1) {
                     return true;
                 }
@@ -55,9 +54,11 @@ public class ValidParanthesis {
     }
 
     public static void main(String args[]) {
-        String str = "(())";
+        String str = "(()";
+        // false is invalid, true is valid
         System.out.println(validpar(str));
         String x = "(a+b)";
+        // false is no duplicate paren, true is duplicate paren
         System.out.println(dupparen(x));
 
     }
