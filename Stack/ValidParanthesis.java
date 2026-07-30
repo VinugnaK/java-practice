@@ -30,23 +30,47 @@ public class ValidParanthesis {
         }
     }
 
-    // To find the duplicate parentheses
+    /*
+     * // To find the duplicate parentheses
+     * static boolean dupparen(String str) {
+     * Stack<Character> s = new Stack<>();
+     * for (int i = 0; i < str.length(); i++) {
+     * if (str.charAt(i) != ')') {
+     * s.push(str.charAt(i));
+     * } else {
+     * int count = 0;
+     * while (s.peek() != '(') {
+     * count++;
+     * s.pop();
+     * }
+     * s.pop();
+     * if (count < 1) {
+     * return true;
+     * }
+     * 
+     * }
+     * }
+     * return false;
+     * 
+     * }
+     */
     static boolean dupparen(String str) {
         Stack<Character> s = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) != ')') {
-                s.push(str.charAt(i));
-            } else {
+            char ch = str.charAt(i);
+            if (ch == ')') {
                 int count = 0;
                 while (s.peek() != '(') {
+                    s.pop();
                     count++;
+                }
+                if (count < 1) {
+                    return true;// duplicate
+                } else {
                     s.pop();
                 }
-                s.pop();
-                if (count < 1) {
-                    return true;
-                }
-
+            } else {
+                s.push(ch);
             }
         }
         return false;
@@ -57,7 +81,7 @@ public class ValidParanthesis {
         String str = "(()";
         // false is invalid, true is valid
         System.out.println(validpar(str));
-        String x = "(a+b)";
+        String x = "((a+b))";
         // false is no duplicate paren, true is duplicate paren
         System.out.println(dupparen(x));
 
