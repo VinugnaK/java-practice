@@ -35,9 +35,12 @@ public class ValidParanthesis {
      * static boolean dupparen(String str) {
      * Stack<Character> s = new Stack<>();
      * for (int i = 0; i < str.length(); i++) {
+     * //opening
      * if (str.charAt(i) != ')') {
      * s.push(str.charAt(i));
-     * } else {
+     * }
+     * //closing
+     * else {
      * int count = 0;
      * while (s.peek() != '(') {
      * count++;
@@ -56,6 +59,7 @@ public class ValidParanthesis {
      */
     static boolean dupparen(String str) {
         Stack<Character> s = new Stack<>();
+        // closing
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             if (ch == ')') {
@@ -69,7 +73,9 @@ public class ValidParanthesis {
                 } else {
                     s.pop();
                 }
-            } else {
+            }
+            // opening
+            else {
                 s.push(ch);
             }
         }
