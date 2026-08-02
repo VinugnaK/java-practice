@@ -1,80 +1,88 @@
 # ☕ Java Practice
 
-A collection of Java programs created while learning and practicing Java programming.
+A comprehensive collection of Java programs and coding exercises covering **Core Java**, **Object-Oriented Programming (OOP)**, **Data Structures & Algorithms (DSA)**, and **problem-solving**. This repository serves as my personal learning journey and interview preparation resource.
 
-This repository contains solutions to coding problems, implementations of core Java concepts, object-oriented programming examples, and data structure & algorithm practice.
+---
+
+## 📖 About
+
+This repository contains Java implementations of fundamental programming concepts, commonly used data structures, algorithms, and coding interview problems. It is regularly updated as I continue learning and practicing Java.
 
 ---
 
 ## 🚀 Topics Covered
 
-- Java Basics
-- Variables & Data Types
-- Operators
-- Conditional Statements
-- Loops
-- Functions & Methods
+- Core Java
 - Arrays
+- ArrayList
 - Strings
-- Object-Oriented Programming
-- Exception Handling
-- Collections Framework
-- File Handling
-- Data Structures
-- Algorithms
-- Coding Challenges
+- Object-Oriented Programming (OOP)
+- Recursion
+- Backtracking
+- Bit Manipulation
+- Pattern Problems
+- Sorting Algorithms
+- Linked List
+- Stack
+- Queue
+- Dynamic Programming (Grid Paths)
+- LeetCode Practice Problems
+- Problem Solving & Interview Preparation
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-Java-Practice/
+java-practice/
 │
-├── Basics/
-├── Arrays/
-├── Strings/
-├── OOP/
-├── Collections/
-├── ExceptionHandling/
-├── FileHandling/
-├── DSA/
-└── PracticeProblems/
+├── Queue/
+├── Stack/
+├── arraleet/
+├── arrays/
+├── arrlis/
+├── backtrack/
+├── bitoperations/
+├── gways/
+├── linkedlist/
+├── oops/
+├── patterns/
+├── recurrr/
+├── sort/
+└── strings/
 ```
-
-> Folder names may vary depending on the repository structure.
 
 ---
 
 ## 🛠 Technologies Used
 
 - Java
-- IntelliJ IDEA / VS Code
 - JDK 17+
+- IntelliJ IDEA / VS Code
 
 ---
 
 ## ▶️ Getting Started
 
-Clone the repository
+### Clone the repository
 
 ```bash
-git clone https://github.com/VinugnaK/java-practice.git
+git clone https://github.com/VinugnaK/Java-practicee.git
 ```
 
-Navigate to the project
+### Navigate to the project
 
 ```bash
-cd java-practice
+cd Java-practicee
 ```
 
-Compile
+### Compile a Java file
 
 ```bash
 javac FileName.java
 ```
 
-Run
+### Run the program
 
 ```bash
 java FileName
@@ -82,40 +90,46 @@ java FileName
 
 ---
 
-## 🎯 Purpose
+## 🎯 Repository Goals
 
-This repository serves as my personal Java learning journey where I:
-
-- Practice Java programming
-- Strengthen problem-solving skills
-- Learn Object-Oriented Programming
-- Improve Data Structures & Algorithms
-- Prepare for coding interviews
+- Strengthen Core Java concepts
+- Master Object-Oriented Programming
+- Practice Data Structures & Algorithms
+- Improve problem-solving skills
+- Prepare for coding interviews and online assessments
 
 ---
 
-## 📈 Future Additions
+## 📈 Future Enhancements
 
-- Advanced Java
+- Trees
+- Graphs
+- Dynamic Programming
+- Greedy Algorithms
+- Binary Search
+- Hashing
+- Sliding Window
+- Two Pointers
+- Java Collections Deep Dive
 - Multithreading
 - Java Streams API
-- Spring Boot Basics
-- Design Patterns
-- Interview Questions
-- LeetCode Solutions
 
 ---
 
 ## 🤝 Contributions
 
-Suggestions and improvements are always welcome.
+Suggestions, improvements, and feedback are always welcome. Feel free to fork this repository and submit a pull request.
 
 ---
 
 ## ⭐ Support
 
-If you find this repository useful, consider giving it a ⭐.
+If you found this repository useful, please consider giving it a **⭐ Star**.
 
 ---
 
-Made with ❤️ by **Vinugna**
+### 👩‍💻 Author
+
+**Vinugna K**
+
+Learning • Building • Improving Every Day 🚀
