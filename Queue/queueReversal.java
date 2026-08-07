@@ -6,10 +6,10 @@ public class queueReversal {
     public static void reverse(Queue<Integer> q) {
         Stack<Integer> s = new Stack<>();
         int size = q.size();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {// or u can use while loop
             s.push(q.remove());
         }
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {// or u can use wgile loop
             q.add(s.pop());
         }
         while (!q.isEmpty()) {
