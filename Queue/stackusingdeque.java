@@ -10,11 +10,11 @@ public class stackusingdeque {
             deque.addLast(data);
         }
 
-        public int remove() {
+        public int remove() {// for implementing queue u have to remove first
             return deque.removeLast();
         }
 
-        public int peek() {
+        public int peek() {// for implementing queue u do get first
             return deque.getLast();
         }
     }
