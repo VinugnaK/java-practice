@@ -7,12 +7,12 @@ class minabsdif {
         int A[] = { 1, 4, 8, 7 };
         int B[] = { 2, 3, 6, 5 };
 
-        Arrays.sort(A);
+        Arrays.sort(A);// tc:o(nlogn)
         Arrays.sort(B);
         int res = 0;
-        for (int i = 0; i < A.length; i++) {
+        for (int i = 0; i < A.length; i++) {// tc:O(N)
             res += Math.abs(A[i] - B[i]);
         }
-        System.out.println(res);
+        System.out.println(res);// total tc:o(NlogN)
     }
 }
