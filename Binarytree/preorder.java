@@ -34,9 +34,17 @@ public class preorder {// TC O(N)
             if (root == null) {
                 return;
             }
-            System.out.println(root.data);
+            System.out.print(root.data + " ");
             preorder(root.left);
             preorder(root.right);
+        }
+
+        public static void inorder(Node root) {
+            if (root == null)
+                return;
+            inorder(root.left);
+            System.out.print(root.data + " ");
+            inorder(root.right);
         }
 
     }
@@ -47,6 +55,8 @@ public class preorder {// TC O(N)
         Node z = xyz.bt(nodes);
         System.out.println(z.data);
         xyz.preorder(z);
+        System.out.println();
+        xyz.inorder(z);
 
     }
 }
