@@ -47,6 +47,14 @@ public class preorder {// TC O(N)
             inorder(root.right);
         }
 
+        public static void postorder(Node root) {
+            if (root == null)
+                return;
+            postorder(root.left);
+            postorder(root.right);
+            System.out.print(root.data + " ");
+        }
+
     }
 
     public static void main(String[] args) {
@@ -57,6 +65,8 @@ public class preorder {// TC O(N)
         xyz.preorder(z);
         System.out.println();
         xyz.inorder(z);
+        System.out.println();
+        xyz.postorder(z);
 
     }
 }
