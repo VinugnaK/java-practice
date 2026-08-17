@@ -30,6 +30,15 @@ class height {
             int rightcount = countofnode(root.right);
             return leftcount + rightcount + 1;
         }
+
+        public static int sumofnode(Node root) {
+            if (root == null)
+                return 0;
+            int lc = sumofnode(root.left);
+            int rc = sumofnode(root.right);
+            return lc + rc + root.data;
+
+        }
     }
 
     public static void main(String[] args) {
@@ -48,6 +57,7 @@ class height {
         root.right.right = new Node(6);
         System.out.println(bt.heigh(root));
         System.out.println(bt.countofnode(root));
+        System.out.println(bt.sumofnode(root));
 
     }
 }
