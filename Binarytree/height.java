@@ -21,6 +21,15 @@ class height {
             int rh = heigh(root.right);
             return Math.max(lh, rh) + 1;
         }
+
+        public static int countofnode(Node root) {
+            if (root == null) {
+                return 0;
+            }
+            int leftcount = countofnode(root.left);
+            int rightcount = countofnode(root.right);
+            return leftcount + rightcount + 1;
+        }
     }
 
     public static void main(String[] args) {
@@ -38,6 +47,7 @@ class height {
         root.left.right = new Node(5);
         root.right.right = new Node(6);
         System.out.println(bt.heigh(root));
+        System.out.println(bt.countofnode(root));
 
     }
 }
