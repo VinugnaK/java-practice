@@ -30,6 +30,7 @@ public class preorder {// TC O(N)
 
         }
 
+        // preorder(ROOT LEFT RIGHT)
         public static void preorder(Node root) {// O(N)
             if (root == null) {
                 return;
@@ -39,6 +40,7 @@ public class preorder {// TC O(N)
             preorder(root.right);
         }
 
+        // inorder(LEFT ROOT RIGHT)
         public static void inorder(Node root) {
             if (root == null)
                 return;
@@ -47,12 +49,55 @@ public class preorder {// TC O(N)
             inorder(root.right);
         }
 
+        // post order(LEFT RIGHT ROOT)
         public static void postorder(Node root) {
             if (root == null)
                 return;
             postorder(root.left);
             postorder(root.right);
             System.out.print(root.data + " ");
+        }
+
+        // level order traversal..
+        // while pushing the level nodes at the end we will push null and then while
+        // removing null, we shd add next level elements
+        public static void levelorder(Node root) {
+            if (root == null) {
+                return;
+            }
+
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+            q.add(null);
+            // THIS LOOP WILL RUN TILL THE QUEUE GETS EMPTY
+            while (!q.isEmpty()) {
+                Node currnode = q.remove();
+                // if current node is null means there are 2 possibilities, either that is the
+                // end of that level and next level is there (or) that is the last node of the
+                // tree
+                if (currnode == null) {
+                    System.out.println();
+                    // if queue is empty
+                    if (q.isEmpty()) {
+                        break;
+                    }
+                    // if there are more elements in the next level
+                    else {
+                        q.add(null);
+                    }
+                } else {
+                    // whenever we add data , we will check that specific node's left and right side
+                    // and add them into the queue
+                    System.out.print(currnode.data + " ");
+                    if (currnode.left != null) {
+                        q.add(currnode.left);
+                    }
+                    if (currnode.right != null) {
+                        q.add(currnode.right);
+                    }
+                }
+            }
+
         }
 
     }
@@ -67,6 +112,8 @@ public class preorder {// TC O(N)
         xyz.inorder(z);
         System.out.println();
         xyz.postorder(z);
+        System.out.println();
+        xyz.levelorder(z);
 
     }
 }
