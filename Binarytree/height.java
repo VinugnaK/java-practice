@@ -72,6 +72,48 @@ class height {
             int ht = Math.max(leftinfo.hei, rightInfo.hei) + 1;
             return new Info(di, ht);
         }
+
+        public static boolean issubtree(Node root, Node subroot) {
+            // 1 check whether the subtree root matches with the current tree
+            if (root == null) {
+                return false;
+            }
+
+            if (isIdentical(root, subroot)) {
+                return true;
+            }
+            // checking if left part is identical
+            // boolean leftans = issubtree(root.left, subroot);
+            // checking if right part is identical
+            // boolean rightans = issubtree(root.right, subroot);
+            return bt.issubtree(root.left, subroot) ||
+                    bt.issubtree(root.right, subroot);
+        }
+
+        static boolean isIdentical(Node root, Node subroot) {
+            // both are null
+            if (root == null && subroot == null) {
+                return true;
+            }
+            // either is null
+            else if (root == null || subroot == null) {
+                return false;
+            }
+            // to check if the root data an dsubroot data is same
+            if (root.data != subroot.data) {
+                return false;
+            }
+            // left part of root
+            if (!isIdentical(root.left, subroot.left)) {
+                return false;
+            }
+            // right part of root
+            if (!isIdentical(root.right, subroot.right)) {
+                return false;
+            }
+            return true;
+
+        }
     }
 
     public static void main(String[] args) {
@@ -94,5 +136,10 @@ class height {
         System.out.println(bt.diameter(root));
         System.out.println(bt.diamm(root).dia);
         System.out.println(bt.diamm(root).hei);
+        // subroot to check whether this is existing in the tree/not
+        Node subroot = new Node(2);
+        subroot.left = new Node(11);
+        subroot.right = new Node(5);
+        System.out.println(bt.issubtree(root, subroot));
     }
 }
