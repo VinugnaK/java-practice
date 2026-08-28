@@ -221,6 +221,23 @@ class height {
 
     }
 
+    // lca -approach 2
+    static Node lca2(Node root, int n1, int n2) {
+        if (root == null || root.data == n1 || root.data == n2) {
+            return root;
+        }
+
+        Node lefts = lca2(root.left, n1, n2);
+        Node rights = lca2(root.right, n1, n2);
+
+        if (lefts == null)
+            return rights;
+        if (rights == null)
+            return lefts;
+
+        return root;
+    }
+
     public static void main(String[] args) {
         /*
          * 1
@@ -253,5 +270,6 @@ class height {
         System.out.println();
         System.out.println("least common ancestor");
         System.out.println(lca(root, 4, 5).data);
+        System.out.println(lca2(root, 4, 5).data);
     }
 }
