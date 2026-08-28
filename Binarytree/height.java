@@ -256,12 +256,33 @@ class height {
 
     }
 
+    // ti find minimum distance between 3 nodes
     static int mindist(Node root, int n1, int n2) {
         Node lca = lca2(root, n1, n2);
         int dist1 = dis(lca, n1);
         int dist2 = dis(lca, n2);
 
         return dist1 + dist2;
+    }
+
+    // to find the n-node and kth anscestor of nth node
+    static int kansno(Node root, int n, int k) {
+
+        if (root == null) {
+            return -1;
+        }
+        if (root.data == n)
+            return 0;
+        int leftdis = kansno(root.left, n, k);
+        int rightdis = kansno(root.right, n, k);
+        if (leftdis == -1 && rightdis == -1)
+            return -1;
+        int max = Math.max(leftdis, rightdis);
+        if (max + 1 == k) {
+            System.out.println(root.data);
+        }
+        return max + 1;
+
     }
 
     public static void main(String[] args) {
@@ -299,5 +320,7 @@ class height {
         System.out.println(lca2(root, 4, 5).data);
         System.out.println("minimum distance");
         System.out.println(mindist(root, 4, 6));
+        System.out.println(" to find the n-node and kth anscestor of nth node ");
+        kansno(root, 6, 1);
     }
 }
