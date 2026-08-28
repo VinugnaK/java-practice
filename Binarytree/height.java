@@ -285,6 +285,32 @@ class height {
 
     }
 
+    // to find the sum of child nodes in the current node...for all nodes..
+    static int transform(Node root) {
+        if (root == null)
+            return 0;
+
+        int LC = transform(root.left);
+        int RC = transform(root.right);
+
+        int data = root.data;
+
+        int newLeft = root.left == null ? 0 : root.left.data;
+        int newRight = root.right == null ? 0 : root.right.data;
+
+        root.data = newLeft + LC + newRight + RC;
+        return data;
+    }
+
+    static void preorder(Node root) {
+        if (root == null)
+            return;
+        System.out.println(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+
+    }
+
     public static void main(String[] args) {
         /*
          * 1
@@ -322,5 +348,8 @@ class height {
         System.out.println(mindist(root, 4, 6));
         System.out.println(" to find the n-node and kth anscestor of nth node ");
         kansno(root, 6, 1);
+        System.out.println(transform(root));
+        System.out.println("preorder of transformed tree");
+        preorder(root);
     }
 }
