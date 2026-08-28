@@ -238,6 +238,32 @@ class height {
         return root;
     }
 
+    static int dis(Node root, int n) {
+        if (root == null)
+            return -1;
+        if (root.data == n)
+            return 0;
+
+        int leftdis = dis(root.left, n);
+        int rightdis = dis(root.right, n);
+
+        if (leftdis == -1 && rightdis == -1)
+            return -1;
+        else if (rightdis == -1)
+            return leftdis + 1;
+        else
+            return rightdis + 1;
+
+    }
+
+    static int mindist(Node root, int n1, int n2) {
+        Node lca = lca2(root, n1, n2);
+        int dist1 = dis(lca, n1);
+        int dist2 = dis(lca, n2);
+
+        return dist1 + dist2;
+    }
+
     public static void main(String[] args) {
         /*
          * 1
@@ -271,5 +297,7 @@ class height {
         System.out.println("least common ancestor");
         System.out.println(lca(root, 4, 5).data);
         System.out.println(lca2(root, 4, 5).data);
+        System.out.println("minimum distance");
+        System.out.println(mindist(root, 4, 6));
     }
 }
