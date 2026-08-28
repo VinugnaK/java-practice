@@ -172,6 +172,16 @@ class height {
 
     }
 
+    public static void kthlevel(Node root, int level, int k) {
+        if (root == null)
+            return;
+        if (level == k) {
+            System.out.print(root.data + " ");
+        }
+        kthlevel(root.left, level + 1, k);
+        kthlevel(root.right, level + 1, k);
+    }
+
     public static void main(String[] args) {
         /*
          * 1
@@ -197,6 +207,9 @@ class height {
         subroot.left = new Node(11);
         subroot.right = new Node(5);
         System.out.println(bt.issubtree(root, subroot));
+        System.out.println("top view elements");
         topview(root);
+        System.out.println("Kth level elements");
+        kthlevel(root, 1, 3);
     }
 }
