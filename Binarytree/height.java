@@ -172,6 +172,7 @@ class height {
 
     }
 
+    // to find kth level elements
     public static void kthlevel(Node root, int level, int k) {
         if (root == null)
             return;
@@ -180,6 +181,44 @@ class height {
         }
         kthlevel(root.left, level + 1, k);
         kthlevel(root.right, level + 1, k);
+    }
+
+    static boolean getpath(Node root, int n, ArrayList<Node> path) {
+        if (root == null)
+            return false;
+        path.add(root);
+        if (root.data == n) {
+            return true;
+        }
+        boolean foundleft = getpath(root.left, n, path);
+        boolean foundright = getpath(root.right, n, path);
+
+        if (foundleft || foundright)
+            return true;
+        path.remove(path.size() - 1);
+
+        return false;
+    }
+
+    // to find least common ancestors..
+    static Node lca(Node root, int n1, int n2) {
+        ArrayList<Node> path1 = new ArrayList<>();
+        ArrayList<Node> path2 = new ArrayList<>();
+
+        // to calculate path for n1 and n2
+        getpath(root, n1, path1);
+        getpath(root, n2, path2);
+
+        // to calculate least common ancestor
+        int i = 0;
+        for (; i < path1.size() && i < path2.size(); i++) {
+            if (path1.get(i) != path2.get(i)) {
+                break;
+            }
+        }
+        Node lca = path1.get(i - 1);
+        return lca;
+
     }
 
     public static void main(String[] args) {
@@ -211,5 +250,8 @@ class height {
         topview(root);
         System.out.println("Kth level elements");
         kthlevel(root, 1, 3);
+        System.out.println();
+        System.out.println("least common ancestor");
+        System.out.println(lca(root, 4, 5).data);
     }
 }
