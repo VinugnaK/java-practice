@@ -1,5 +1,7 @@
 package Binarytree;
 
+import java.util.*;
+
 class height {
     static class Node {
         int data;
@@ -116,6 +118,60 @@ class height {
         }
     }
 
+    static class info {
+        Node node;
+        int hd;
+
+        public info(Node node, int hd) {
+            this.node = node;
+            this.hd = hd;
+        }
+
+    }
+
+    public static void topview(Node root) {
+        // level order
+        Queue<info> q = new LinkedList<>();
+        // to store things in hashmap
+        HashMap<Integer, Node> map = new HashMap<>();
+        int min = 0, max = 0;
+        q.add(new info(root, 0));
+        q.add(null);
+        // same as level order..if null is there then check whether queue is empty or
+        // not and if queue is empty break...if queue is not empty add null
+        while (!q.isEmpty()) {
+            info curr = q.remove();
+            if (curr == null) {
+                if (q.isEmpty()) {
+                    break;
+                } else {
+                    q.add(null);
+                    continue;
+                }
+
+            }
+            // checking if the view already eists in the map and adding
+            if (!map.containsKey(curr.hd)) {
+                map.put(curr.hd, curr.node);
+            }
+            // checking for the left node
+            if (curr.node.left != null) {
+                q.add(new info(curr.node.left, curr.hd - 1));
+                min = Math.min(min, curr.hd - 1);
+            }
+            // checking for the right node
+            if (curr.node.right != null) {
+                q.add(new info(curr.node.right, curr.hd + 1));
+                max = Math.max(max, curr.hd + 1);
+            }
+        }
+        // printing the map
+        for (int i = min; i <= max; i++) {
+            System.out.println(map.get(i).data);
+        }
+
+    }
+
     public static void main(String[] args) {
         /*
          * 1
@@ -141,5 +197,6 @@ class height {
         subroot.left = new Node(11);
         subroot.right = new Node(5);
         System.out.println(bt.issubtree(root, subroot));
+        topview(root);
     }
 }
